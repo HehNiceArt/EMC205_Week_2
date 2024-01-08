@@ -456,8 +456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4822e0ca0304ee44ea8c516b9079804d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePlayerDamage: 50
-  finalPlayerDamage: 70
+  basePlayerDamage: 10
+  finalPlayerDamage: 39
   eWeapon: 0
   expToAdd: 0
   maxXP: 0
