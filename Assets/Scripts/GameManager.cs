@@ -70,6 +70,22 @@ public class GameManager : MonoBehaviour
     }
     public void DamageReset()
     {
+        DamageSystem  damageSystem = new DamageSystem();
+        switch (eWeapon)
+        {
+            case eEqquippedWeapon.AK47:
+                finalPlayerDamage = basePlayerDamage + damageSystem.Damage_AK47;
+                break;
+            case eEqquippedWeapon.DesertEagle:
+                finalPlayerDamage = basePlayerDamage + damageSystem.Damage_DEagle;
+                break;
+            case eEqquippedWeapon.RocketLauncher:
+                finalPlayerDamage = basePlayerDamage + damageSystem.Damage_RLauncher;
+                break;
+            case eEqquippedWeapon.M4A1:
+                finalPlayerDamage = basePlayerDamage + damageSystem.Damage_M4A1;
+                break;
+        }
         Debug.Log("Reset damage");
     }
 }
