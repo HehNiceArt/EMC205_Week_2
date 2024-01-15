@@ -24,5 +24,14 @@ public class GameManagerEditor : Editor
         {
             gameManager.DamageReset();
         }
+        GUILayout.Space(15);
+        if(GUILayout.Button("Add EXp"))
+        {
+            gameManager.AddExp(gameManager.expToAdd);
+        }
+        if(GUILayout.Button("Reset EXP"))
+        {
+            gameManager.ResetExp();
+        }
     }
 }

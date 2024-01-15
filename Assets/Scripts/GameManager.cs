@@ -18,10 +18,10 @@ public class GameManager : MonoBehaviour
     [Header("Eqquipped Weapon")]
     public eEqquippedWeapon eWeapon;
     [Header("Experience")]
+    public float playerLevel;
+    public float currentXP;
     public float expToAdd;
     public float maxXP;
-    public float currentXP;
-    public float playerLevel;
 
     //updates value without playing the game
     private void OnValidate()
@@ -45,14 +45,6 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-    }
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    DamagePowerUp_WellFed();
-        //}
-
     }
 
     public void DamagePowerUp_FeedingFrenzy()
@@ -87,5 +79,35 @@ public class GameManager : MonoBehaviour
                 break;
         }
         Debug.Log("Reset damage");
+    }
+
+    public void ExpSytem()
+    {
+        ExpHandler expHandler = new ExpHandler();
+        maxXP = expHandler.MaxExperience;
+        currentXP = expHandler.CurrentExperience;
+        playerLevel = expHandler.CurrentLevel;
+        expToAdd = expHandler.ExpToAdd;
+    }
+    public void AddExp(float experienceToAdd)
+    {
+        currentXP += experienceToAdd;
+        if(currentXP >= maxXP )
+        {
+            LevelUp();
+        }
+    }
+    public void LevelUp()
+    {
+        playerLevel++;
+        currentXP = 0;
+        maxXP *= 1.5f;
+    }
+    public void ResetExp()
+    {
+        playerLevel = 0;
+        currentXP = 0;
+        expToAdd = 0;
+        maxXP = 0;
     }
 }
