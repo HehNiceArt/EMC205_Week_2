@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    PlayerEquipmentManager pM;
+    PlayerEquipmentManager playerEquipManager;
     public string itemName;
     public GameObject itemContainer;
     public Transform weaponHold;
@@ -13,26 +13,42 @@ public class PlayerManager : MonoBehaviour
     int previousID;
     bool isCreated;
     bool destroyPrev;
-    public static PlayerEquipmentManager Instance {  get; private set; }
+
+    private WeaponAbilities currentWeapon;
+    public Animation anim;
     private void Start()
     {
-    pM = GetComponent<PlayerEquipmentManager>();
+        playerEquipManager = PlayerEquipmentManager.Instance;
     }
     private void Update()
     {
         WeaponsCheck();
         WeaponsModelUpdate();
-        if(previousID != itemID)
+        Ultimate();
+        EquipWeaponFX(itemContainer.GetComponent<WeaponAbilities>());
+    }
+    public void WeaponsCheck()
+    {
+        itemName = playerEquipManager.ItemsList[itemID].itemName;
+        itemContainer = playerEquipManager.ItemsList[itemID].itemContainer;
+        if (previousID != itemID)
         {
             previousID = itemID;
             isCreated = true;
             destroyPrev = true;
         }
     }
-    public void WeaponsCheck()
+
+    public void EquipWeaponFX(WeaponAbilities weapon)
     {
-        itemName = pM.ItemsList[itemID].itemName;
-        itemContainer = pM.ItemsList[itemID].itemContainer;
+        currentWeapon = weapon; 
+    }
+    public void Ultimate()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            currentWeapon.Ultimate();
+        }
     }
     public void WeaponsModelUpdate()
     {

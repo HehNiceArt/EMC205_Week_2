@@ -17,4 +17,11 @@ public class PlayerEquipmentManager : MonoBehaviour
     [SerializeField]
     private List<Items> itemsList = new List<Items>();
     public List<Items> ItemsList { get { return itemsList; } }
+
+    public static PlayerEquipmentManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 }

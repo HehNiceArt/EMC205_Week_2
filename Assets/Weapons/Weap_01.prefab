@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9157506273632701613}
   - component: {fileID: 2061483066059331513}
   - component: {fileID: 7994965274117263469}
+  - component: {fileID: -6414125756678187909}
   m_Layer: 0
   m_Name: Weap_01
   m_TagString: Untagged
@@ -105,3 +106,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6414125756678187909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697581122746037721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf3d857efb3db64f9b806524a2f4055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
